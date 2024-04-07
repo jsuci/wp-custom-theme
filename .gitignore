@@ -1,0 +1,67 @@
+# Ignore common system files #
+###########################
+*.log
+*.sql
+*.sqlite
+.DS_Store
+Thumbs.db
+
+# Ignore node modules #
+#######################
+node_modules/
+
+# Ignore vendor folder (Composer dependencies) #
+###############################################
+vendor/
+
+# Ignore user-specific configs #
+################################
+wp-config.php
+wp-content/debug.log
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/themes/*/node_modules/
+wp-content/plugins/*/node_modules/
+
+# Ignore default WordPress themes #
+###################################
+wp-content/themes/twenty*/
+
+# Ignore sensitive files #
+##########################
+*.key
+*.cert
+*.pem
+*.pass
+.svn/
+.htaccess
+.idea/
+.vscode/
+*.bak
+*.swp
+
+# Ignore all themes except the ones you're developing. Adjust as necessary #
+############################################################################
+wp-content/themes/*
+!wp-content/themes/mycustomtheme/
+
+# Ignore specific plugins or all and whitelist as necessary #
+#############################################################
+wp-content/plugins/*
+!wp-content/plugins/mu-plugins/
+
+# Optional: Ignore core WordPress files #
+########################################
+# You can uncomment the following lines if you're using a deployment method
+# that doesn't require you to track the core WordPress files.
+
+wp-admin/
+wp-includes/
+#*.php
+#license.txt
+#readme.html
+#xmlrpc.php
