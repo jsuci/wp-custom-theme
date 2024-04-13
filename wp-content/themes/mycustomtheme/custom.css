@@ -15,8 +15,9 @@ a:active,
   font-weight: 700;
 }
 .divider {
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  color: #686868;
 }
 .search-btn,
 .submit-button-class {
@@ -170,7 +171,6 @@ a:active,
   margin-bottom: 12px;
 }
 .post-details {
-  font-style: italic;
   font-size: 0.8em;
 }
 
@@ -207,4 +207,50 @@ a:active,
 
 .rating-stars .star {
   color: grey;
+}
+
+.thumbnail-excerpt {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail-excerpt img {
+  width: 150px;
+}
+
+.site-logo {
+  background-image: url("./images/bestcheatfiles-logo.png");
+  text-indent: -10000em;
+  width: 434px; /* Consider using max-width instead */
+  height: 42px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .site-logo {
+    width: 100%; /* Adjust width to 100% for smaller screens */
+    min-width: 0; /* Remove the minimum width restriction */
+  }
+}
+
+.site-title {
+  font-size: 2.5em;
+  line-height: 1.35;
+  margin-bottom: 30px;
+}
+
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+.post-content h2 {
+  font-size: 1.7em;
+  font-weight: 400;
+  line-height: 1.35;
 }
