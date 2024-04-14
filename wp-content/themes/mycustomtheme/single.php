@@ -9,44 +9,44 @@ get_header(); ?>
         <?php while (have_posts()) : the_post(); ?>
             <article aria-labelledby="post-title-<?php the_ID(); ?>" class="bg-slate-700 p-6 rounded-lg mb-6">
                 <header class="mb-6">
-                    <h2 id="post-title-<?php the_ID(); ?>" class="text-4xl/snug font-semibold mb-6 post-title"><?php the_title(); ?></h2>
-                    <div class="flex flex-wrap gap-y-2 divide-x-2 divide-slate-600 text-base post-details">
-                        <time datetime="<?php echo subtractDaysFromDate(5, "Y-m-d"); ?>" class="pr-3"><?php echo subtractDaysFromDate(5); ?></time>
-                        <span class="divider">-</span>
-                        <div class="px-3">
-                            <?php
-                            $rating = get_field('ratings');
-                            if ($rating) {
-                                // Start the schema
-                                echo '<div itemscope itemtype="http://schema.org/Product">';
-                                echo '<meta itemprop="ratingValue" content="' . esc_attr($rating) . '" />';
-                                echo '<meta itemprop="bestRating" content="5" />';
-
-                                // Output the stars
-                                echo '<div class="rating-stars">';
-                                for ($i = 1; $i <= 5; $i++) {
-                                    if ($i <= $rating) {
-                                        echo '<span class="star filled">&#9733;</span>'; // Filled star
-                                    } else {
-                                        echo '<span class="star">&#9734;</span>'; // Empty star
+                    <h1 id="post-title-<?php the_ID(); ?>" class="text-4xl/snug font-semibold mb-6 post-title"><?php the_title(); ?></h2>
+                        <div class="flex flex-wrap gap-y-2 divide-x-2 divide-slate-600 text-base post-details">
+                            <time datetime="<?php the_modified_date('c') ?>" class="pr-3"><?php the_modified_date() ?></time>
+                            <span class="divider">|</span>
+                            <div class="px-3">
+                                <?php
+                                $rating = get_field('ratings');
+                                if ($rating) {
+                                    // Output the stars
+                                    echo '<div class="rating-stars">';
+                                    for ($i = 1; $i <= 5; $i++) {
+                                        if ($i <= $rating) {
+                                            echo '<span class="star filled">&#9733;</span>'; // Filled star
+                                        } else {
+                                            echo '<span class="star">&#9734;</span>'; // Empty star
+                                        }
                                     }
+                                    echo '</div>'; // .rating-stars
                                 }
-                                echo '</div>'; // .rating-stars
-                                echo '</div>'; // Schema.org Product
-                            }
-                            ?>
+                                ?>
+                            </div>
+                            <span class="divider">|</span>
+                            <div class="pl-3">
+                                <?php echo get_comments_number(); ?> comments
+                            </div>
                         </div>
-                        <span class="divider">-</span>
-                        <div class="pl-3">
-                            <?php echo get_comments_number(); ?> comments
-                        </div>
-                    </div>
                 </header>
-                <div>
-                    <img src="<?php echo the_field('post_image') ?>" />
-                    <?php echo the_field('software_description') ?>
-                    <?php the_content(); ?>
-                    <a href="<?php echo the_field('download_link') ?>">Download Now</a>
+                <div class="post-content">
+                    <div class="post-image-desc">
+                        <img src="<?php echo the_field('post_image') ?>" width="250" />
+                        <p><?php echo the_field('post_description') ?></p>
+                    </div>
+                    <?php echo get_field("post_steps") ?>
+                    <a href="<?php echo the_field('download_link') ?>">
+                        <div class="dl-button">
+                            <div class=" mt-3 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600">Click Here to Download <?php the_field("post_title") ?></div>
+                        </div>
+                    </a>
                 </div>
             </article>
         <?php endwhile; ?>

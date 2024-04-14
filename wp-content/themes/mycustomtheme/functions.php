@@ -158,7 +158,8 @@ function my_custom_comments_navigation()
 }
 
 
-function custom_get_comment_author_link($author_link){
+function custom_get_comment_author_link($author_link)
+{
     // Use preg_replace to remove the <a> tag, keeping only the author's name
     $author_name_only = preg_replace('/<a href="(.*)">(.*)<\/a>/', '\\2', $author_link);
     return $author_name_only;
