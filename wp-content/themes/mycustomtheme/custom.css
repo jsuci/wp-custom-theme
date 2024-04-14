@@ -191,6 +191,7 @@ a:active,
   padding-right: 1rem;
   background: #ec4899;
   border-radius: 0.5rem;
+  margin-top: 1em;
 }
 
 .readmore-button a:hover {
@@ -231,14 +232,6 @@ a:active,
   background-position: center;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .site-logo {
-    width: 100%; /* Adjust width to 100% for smaller screens */
-    min-width: 0; /* Remove the minimum width restriction */
-  }
-}
-
 .site-title {
   font-size: 2.5em;
   line-height: 1.35;
@@ -253,4 +246,36 @@ a:active,
   font-size: 1.7em;
   font-weight: 400;
   line-height: 1.35;
+}
+
+.post-image-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1em;
+  margin-bottom: 1em;
+  row-gap: 30px;
+}
+.dl-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .site-logo {
+    width: 100%; /* Adjust width to 100% for smaller screens */
+    min-width: 0; /* Remove the minimum width restriction */
+  }
+
+  .thumbnail-excerpt {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    align-items: center;
+    justify-content: center;
+  }
 }
